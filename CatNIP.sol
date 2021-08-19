@@ -59,8 +59,8 @@ contract CatNIP is Context, IERC20, IERC20Metadata {
 
 
     //////////////////////////// PANCAKE SWAP VARS ////////////////////////////  
-    // address public routerAddressForDEX = 0x10ED43C718714eb63d5aA57B78B54704E256024E;     // CHANGEIT - change this to real pancakeswap router
-    address public routerAddressForDEX = 0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3;   
+    address public routerAddressForDEX = 0x10ED43C718714eb63d5aA57B78B54704E256024E;     // CHANGEIT - change this to real pancakeswap router
+    // address public routerAddressForDEX = 0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3;   
 
     IPancakeRouter02 public pancakeswapRouter = IPancakeRouter02(routerAddressForDEX);      // gets the router
     address public pancakeswapPair = IPancakeFactory(pancakeswapRouter.factory()).createPair(address(this), pancakeswapRouter.WETH());     // Creates the pancakeswap pair   
@@ -720,7 +720,7 @@ contract CatNIP is Context, IERC20, IERC20Metadata {
     }
 
     function SetTeamTaxPercent(uint256 newTeamTaxPercent) external OnlyDirector() {
-        require(newTeamTaxPercent <= 10, "Must be less than or equal to a1 0% tax");
+        require(newTeamTaxPercent <= 10, "Must be less than or equal to a 10% tax");
         teamTaxPercent = newTeamTaxPercent;
     }
 
